@@ -12,56 +12,74 @@ import {
 	HStack,
 	Input,
 	FormControl,
-	FormLabel,
+	Center,
+	Spinner,
 } from '@chakra-ui/react';
 
 function ClientIdUploadScreen() {
-	const handleSelect = (file) => {
-		console.log(file)
-
-		// Add some logic once file is uploaded we go to the next screen.
-		// https://developers.apideck.com/get-started#step-2-enable-unified-apis-and-connectors
-	}
 	const [file, setFile] = useState()
+	const [loading, setLoading] = useState();
+	const [fileContent, setFileContent] = useState('');
 
 	function handleChange(event) {
 		setFile(event.target.files[0]);
-		console.log(file);
 	}
+
+	function processFile() {
+		console.log(file);
+		if(file!=null){
+			// setLoading(true);
+			const fileReader = new FileReader();
+			fileReader.readAsText(file, "UTF-8");
+			fileReader.onload = e => {
+				console.log("e.target.result", e.target.result);
+				setFileContent(e.target.result);
+			};
+		}
+	}
+
+	async function callZkProof() {
+
+	}
+
+
 
 	return (
 		<Container maxW={'2xl'}>
-			<Stack
-				as={Box}
-				textAlign={'center'}
-				spacing={{ base: 8, md: 14 }}
-				py={{ base: 20, md: 36 }}>
+			{loading ? <>
+			<Center>
+				<Spinner size={'xl'}/>
+			</Center>
+			</> :
 				<Stack
-					direction={'column'}
-					spacing={3}
-					align={'center'}
-					alignSelf={'center'}
-				>
-					<Heading
-						fontWeight={600}
-						fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-						lineHeight={'110%'}>
-						Please upload your <br />
-						<Text as={'span'} color={'green.400'}>
-							Identity file
-						</Text>
-					</Heading>
-				</Stack>
-				{/* <Box as={'button'} bgColor={'green.400'} color={'white'} height={'xs'} width={'xs'} borderRadius={'full'} alignSelf={'center'} > */}
+					as={Box}
+					textAlign={'center'}
+					spacing={{ base: 8, md: 14 }}
+					py={{ base: 20, md: 36 }}>
+					<Stack
+						direction={'column'}
+						spacing={3}
+						align={'center'}
+						alignSelf={'center'}
+					>
+						<Heading
+							fontWeight={600}
+							fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+							lineHeight={'110%'}>
+							Please upload your <br />
+							<Text as={'span'} color={'green.400'}>
+								Identity file
+							</Text>
+						</Heading>
+					</Stack>
 					<FormControl >
 						<HStack>
-						<Input type={'file'} accept={'file/xml'} onChange={handleChange} w={'xs'}/>
-						<Button type={'submit'} onClick={()=>this.processFile}>Upload</Button>
+							<Input type={'file'} accept='.json' onChange={handleChange} w={'xs'} />
+							<Button type={'submit'} onClick={() => processFile()}>Upload</Button>
 						</HStack>
 					</FormControl>
 
-				{/* </Box> */}
-			</Stack>
+				</Stack>}
 		</Container>
 	);
 }

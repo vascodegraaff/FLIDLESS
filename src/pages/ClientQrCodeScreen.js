@@ -12,7 +12,7 @@ import QRCode from "react-qr-code";
 
 
 function ClientQrCodeScreen() {
-	const [name, setName] = useState('Vasco de Graaff');
+	const [name, setName] = useState('NEO');
 	const [flight, setFlight] = useState('MH370');
 	const [time, setTime] = useState("11:00 Sepetember 18");
 
