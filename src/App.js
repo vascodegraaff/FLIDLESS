@@ -3,7 +3,6 @@ import './App.css';
 import ClientWelcomeScreen from './pages/ClientWelcomeScreen';
 import { Routes, Route } from "react-router-dom";
 import ClientIdUploadScreen from './pages/ClientIdUploadScreen';
-import ClientProofScreen from './pages/ClientProofScreen';
 import ClientQrCodeScreen from './pages/ClientQrCodeScreen';
 import AdminLoginScreen from './pages/AdminLoginScreen';
 import AdminScannerScreen from './pages/AdminScannerScreen';
@@ -16,7 +15,6 @@ function App() {
     <Routes>
       <Route path="" element={<ClientWelcomeScreen />} />
       <Route path="idUpload" element={<ClientIdUploadScreen />} />
-      <Route path="proof" element={<ClientProofScreen /> } />
       <Route path="qrCode" element={<ClientQrCodeScreen />} />
 
       <Route path="admin" element={<AdminLoginScreen />}></Route>
