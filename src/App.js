@@ -18,9 +18,8 @@ function App() {
       <Route path="/Proof" element={<ClientProofScreen /> } />
       <Route path="/qrCode" element={<ClientQrCodeScreen />} />
 
-      <Route path="admin" element={<AdminLoginScreen />}>
-        <Route path="scanner" element={<AdminScannerScreen />} />
-      </Route>
+      <Route path="admin" element={<AdminLoginScreen />}></Route>
+      <Route path="scanner" element={<AdminScannerScreen />} />
       <Route path="*" element={<NotFoundScreen />} />
     </Routes>
   );

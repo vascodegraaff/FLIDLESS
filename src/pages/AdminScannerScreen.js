@@ -1,8 +1,25 @@
 import React from 'react';
+import { QrReader } from 'react-qr-reader';
+import { useState } from 'react';
 
 function AdminScannerScreen() {
-	return ( 
-		<h1>Admin Scanner Screen</h1>
+	const [data, setData] = useState('No result');
+	return (
+		<>
+			<QrReader
+				onResult={(result, error) => {
+					if (!!result) {
+						setData(result?.text);
+					}
+
+					if (!!error) {
+						console.info(error);
+					}
+				}}
+				style={{ width: '100%' }}
+			/>
+			<p>{data}</p>
+		</>
 	);
 }
 
