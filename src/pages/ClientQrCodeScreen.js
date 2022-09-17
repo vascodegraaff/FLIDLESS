@@ -15,6 +15,7 @@ function ClientQrCodeScreen() {
 	const [name, setName] = useState('NEO');
 	const [flight, setFlight] = useState('MH370');
 	const [time, setTime] = useState("11:00 Sepetember 18");
+	const [qrCode, setQrCode] = useState({data:{"test":"cool"}})
 
 	useEffect(() => {
 
@@ -37,7 +38,7 @@ function ClientQrCodeScreen() {
 					pos={'relative'}>
 					<div style={{ height: "auto", margin: "0 auto", maxWidth: "256", width: "100%" }}>
 						<QRCode
-							value="test"
+							value={qrCode}
 							size={256}
 							style={{ height: "auto", maxWidth: "100%", width: "100%" }}
 							viewBox={`0 0 256 256`}
