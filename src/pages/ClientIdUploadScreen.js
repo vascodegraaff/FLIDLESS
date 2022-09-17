@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { FilePicker } from '@apideck/file-picker'
+import { useForm, useEffect } from 'react';
+// import { FilePicker } from '@apideck/file-picker'
 import '@apideck/file-picker/dist/styles.css'
 import { Link } from 'react-router-dom';
 import {
@@ -11,13 +12,9 @@ import {
 	Stack,
 } from '@chakra-ui/react';
 
-function ClientIdUploadScreen() {
-	const handleSelect = (file) => {
-		console.log(file)
 
-		// Add some logic once file is uploaded we go to the next screen.
-		// https://developers.apideck.com/get-started#step-2-enable-unified-apis-and-connectors
-	}
+function ClientIdUploadScreen() {
+
 	return (
 		<Container maxW={'2xl'}>
 			<Stack
@@ -41,14 +38,18 @@ function ClientIdUploadScreen() {
 						</Text>
 					</Heading>
 				</Stack>
-				<Box as={'button'} bgColor={'green.400'} color={'white'} height={'xs'} width={'xs'} borderRadius={'full'} alignSelf={'center'} >
-					<FilePicker
-						onSelect={handleSelect}
-						trigger={<button>Pick a file</button>}
-						jwt="token-123"
-						appId="QNhBNieHjoJAuTsjJkJkJU6c6Gup9Mf7AwU8JkJl"
-						consumerId="your-consumer-id"
-					/>
+					<Box as={'button'}
+							 bgColor={'green.400'}
+							 color={'white'}
+							 height={'xs'}
+							 width={'xs'}
+							 borderRadius={'full'}
+							 alignSelf={'center'}
+							 type="file"
+							 id="fileElem"
+							 style={{display:'none'}}>
+							 <label for="fileElem" fontWeight={1000}>Upload ID</label>
+
 
 				</Box>
 			</Stack>
