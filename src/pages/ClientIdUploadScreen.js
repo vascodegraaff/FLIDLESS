@@ -26,7 +26,9 @@ function ClientIdUploadScreen() {
 
 	function handleChange(event) {
 		setFile(event.target.files[0]);
+		console.log(file);
 	}
+
 	return (
 		<Container maxW={'2xl'}>
 			<Stack
@@ -54,7 +56,7 @@ function ClientIdUploadScreen() {
 					<FormControl >
 						<HStack>
 						<Input type={'file'} accept={'file/xml'} onChange={handleChange} w={'xs'}/>
-						<Button type={'submit'}>Upload</Button>
+						<Button type={'submit'} onClick={()=>this.processFile}>Upload</Button>
 						</HStack>
 					</FormControl>
 

@@ -107,4 +107,3 @@ increment("hash-2938d07b413448c57a94f36054c9e70a1db44f51ed136b4d7c5419b015c70b37
         console.log(count)
     })
 })*/
-Footer
