@@ -5,17 +5,18 @@ import {
 	Center,
 	VStack,
 	Heading,
-	Text,
+	Button,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 
-function AdminScanStatusScrene({ verified }) {
+function AdminScanStatusScrene(options) {
 	return (
 		<>
 			<Center>
 				<VStack margin={'40'}>
 
-					{verified ? <>
+					{options ? <>
 						<Heading
 							textAlign="center"
 							fontWeight={600}
@@ -49,6 +50,20 @@ function AdminScanStatusScrene({ verified }) {
 							</Flex>
 						</Box>
 					</>}
+					<Link exact to="/scanner">
+						<Button
+							colorScheme={'green'}
+							bg={'green.400'}
+							rounded={'full'}
+							size={'lg'}
+							px={30}
+							_hover={{
+								bg: 'green.500',
+							}}>
+							Scan another flyer
+						</Button>
+
+					</Link>
 				</VStack>
 			</Center>
 		</>

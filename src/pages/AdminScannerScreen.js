@@ -46,7 +46,9 @@ function AdminScannerScreen() {
 
 	React.useEffect(() => {
 		if (verified) {
-			navigate('/scanStatus');
+			// navigate and pass props as true
+			navigate('/scanStatus',true);
+			console.log(verified);
 		}
 	}, [navigate, verified]);
 
@@ -84,7 +86,6 @@ function AdminScannerScreen() {
 							<QrReader
 								onResult={(result, error) => {
 									if (!!result) {
-										console.log(result);
 										setVerified(true);
 										// verifyQRCode(result?.text);
 									}
