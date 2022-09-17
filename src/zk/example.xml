@@ -1,0 +1,24 @@
+<OfflinePaperlessKyc referenceId="">
+<UidData>
+<Poi dob="23101980" gender="T" name="Pui Puiule" e="06f961b802bc46ee168555f066d28f4f0e9afdf3f88174c1ee6f9de004fc30a0" m="0263829989b6fd954f72baaf2fc64bc2e2f01d692d4de72986ea808f6e99813f"/>
+<Poa careof="" country="India" dist="pui" house="3" loc="14" pc="tashak" po="3248" state="USA" street="" subdist="" vtc="" />
+<Pht></Pht>
+</UidData>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+<Reference URI="">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+<DigestValue></DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue></SignatureValue>
+<KeyInfo>
+</KeyInfo>
+</Signature>
+
+</OfflinePaperlessKyc>
