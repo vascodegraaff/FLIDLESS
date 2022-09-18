@@ -49,7 +49,7 @@ function AdminLoginScreen() {
 						align={'center'}
 						alignSelf={'center'}
 						position={'relative'}>
-						<Link exact to="/scanner">
+						<Link exact="true" to="/scanner">
 							<Button
 								colorScheme={'green'}
 								bg={'green.400'}
