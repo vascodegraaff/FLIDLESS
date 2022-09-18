@@ -75,7 +75,7 @@ function pollDeployment(deployHash) {
 	});
 }
 
-const contractAddress = "hash-6b33981c0201d37f128cabe1b025fd6acef08576ebef77536d4faeb9e9d9b22d"
+const contractAddress = "hash-d56a9b91eb1443a6a932ca48fcb59da99cb2a148f741d342c3dec78a60360043"
 
 app.get('/validate_proof', async (req, res) => {
 
