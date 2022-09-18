@@ -18,9 +18,7 @@ import {
 import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import AdminLoginScren from './AdminLoginScreen';
-
-
-
+import axios from 'axios';
 
 
 // function verifyQRCode(data) {
@@ -39,22 +37,19 @@ import AdminLoginScren from './AdminLoginScreen';
 function AdminScannerScreen() {
 	const [data, setData] = useState('No result');
 	const [verified, setVerified] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const IMAGE = 'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
-
 
 	const navigate = useNavigate();
 
 	React.useEffect(() => {
 		if (verified) {
 			// navigate and pass props as true
-			navigate('/scanStatus',true);
-			console.log(verified);
 		}
-	}, [navigate, verified]);
+	}, [verified, loading]);
 
 	return (
 		<>
-			{verified ? <></> : <></>}
 			<Center py={12}>
 				<Stack>
 					<Heading
@@ -83,18 +78,23 @@ function AdminScannerScreen() {
 							height={'xl'}
 							borderRadius={'lg'}
 						>
-							<QrReader
+							{ !loading ? <QrReader
 								onResult={(result, error) => {
 									if (!!result) {
-										setVerified(true);
-										// verifyQRCode(result?.text);
-									}
+										setLoading(true)
+										axios.get(`http://localhost:4000/verify_status`).then(res => {
+											navigate('/scanStatus', !!res.data.status);
+											setLoading(false)
+											setVerified(false)
+										}).catch(err => console.warn(err))
+									} 
+									
 									if (!!error) {
-										console.info(error);
+										setLoading(false)
 									}
 								}}
 								style={{ width: '100%' }}
-							/>
+							/> : <center>Loading</center>}
 						</Box>
 					</Box>
 

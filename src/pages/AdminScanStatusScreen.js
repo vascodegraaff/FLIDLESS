@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 
 function AdminScanStatusScrene(options) {
+	console.log(options)
 	return (
 		<>
 			<Center>
@@ -50,7 +51,7 @@ function AdminScanStatusScrene(options) {
 							</Flex>
 						</Box>
 					</>}
-					<Link exact to="/scanner">
+					<Link exact="true" to="/scanner">
 						<Button
 							colorScheme={'green'}
 							bg={'green.400'}

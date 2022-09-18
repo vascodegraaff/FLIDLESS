@@ -19,7 +19,7 @@ function App() {
 
       <Route path="admin" element={<AdminLoginScreen />}></Route>
       <Route path="scanner" element={<AdminScannerScreen />} />
-      <Route path="scanStatus" element={<AdminScanStatusScreen verified={false}/>} />
+      <Route path="scanStatus" element={<AdminScanStatusScreen/>} />
       <Route path="*" element={<NotFoundScreen />} />
     </Routes>
   );
