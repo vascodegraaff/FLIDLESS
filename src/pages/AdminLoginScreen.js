@@ -8,8 +8,10 @@ import {
 	Button,
 	Stack,
 	Icon,
+	Image,
 	useColorModeValue,
 	createIcon,
+	Center,
 } from '@chakra-ui/react';
 
 const Arrow = createIcon({
@@ -34,14 +36,20 @@ function AdminLoginScreen() {
 					textAlign={'center'}
 					spacing={{ base: 8, md: 14 }}
 					py={{ base: 20, md: 36 }}>
+
+					<Center >
+						<Box boxSize={'3xs'}>
+							<Image src={require('../assets/logo.png')} alt='logo' />
+						</Box>
+					</Center>
 					<Heading
 						fontWeight={600}
 						fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
 						lineHeight={'110%'}>
-					Welcome to the <br/> 
-					<Text color={'green.400'}>
-						Admin Scanner
-					</Text>
+						Welcome to the <br />
+						<Text color={'green.400'}>
+							Admin Scanner
+						</Text>
 					</Heading>
 					<Stack
 						direction={'column'}

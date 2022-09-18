@@ -22,14 +22,14 @@ function ClientIdUploadScreen() {
 	const [file, setFile] = useState()
 	const [loading, setLoading] = useState();
 	const navigate = useNavigate();
-	
+
 	function handleChange(event) {
 		setFile(event.target.files[0]);
 	}
 
 	function processFile() {
 		console.log(file);
-		if(file!=null){
+		if (file != null) {
 			const fileReader = new FileReader();
 			fileReader.readAsText(file, "UTF-8");
 			fileReader.onload = e => {
@@ -43,9 +43,9 @@ function ClientIdUploadScreen() {
 		setLoading(true)
 		let inputsJson = JSON.parse(data);
 		const { proof, publicSignals } = await window.snarkjs.groth16.fullProve(inputsJson, 'indian-verifier-minimal.wasm', 'circuit_0.zkey')
-		
+
 		console.log(proof, publicSignals);
-		
+
 		// axios.get(`http://localhost:4000/validate_proof`).then(res => {
 		// }).catch(err => console.warn(err))
 		navigate('/qrCode', "shit");
@@ -53,15 +53,15 @@ function ClientIdUploadScreen() {
 
 	return (
 		<Container maxW={'2xl'}>
-			{loading ? <div style={{height: "100vh", width:"100wh"}}>
-							<Center style={{ display: "flex", flexDirection: "column", height: "100%", width:"100%" }}>
-								<Spinner size={'xl'}/>
-								<br/>
-								<Text color={'gray.500'} maxW={'3xl'} textAlign="center">
-									Generating a zero-knowledge proof...
-								</Text>
-							</Center>
-							</div> :
+			{loading ? <div style={{ height: "100vh", width: "100wh" }}>
+				<Center style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
+					<Spinner size={'xl'} />
+					<br />
+					<Text color={'gray.500'} maxW={'3xl'} textAlign="center">
+						Generating a zero-knowledge proof...
+					</Text>
+				</Center>
+			</div> :
 				<Stack
 					as={Box}
 					textAlign={'center'}
@@ -84,12 +84,13 @@ function ClientIdUploadScreen() {
 						</Heading>
 					</Stack>
 					<FormControl >
-						<HStack>
-							<Input type={'file'} accept='.json' onChange={handleChange} w={'xs'} />
-							<Button type={'submit'} onClick={() => processFile()}>Upload</Button>
-						</HStack>
+						<Center>
+							<HStack >
+								<Input type={'file'} accept='.json' onChange={handleChange} w={'xs'} />
+								<Button type={'submit'} onClick={() => processFile()}>Upload</Button>
+							</HStack>
+						</Center>
 					</FormControl>
-
 				</Stack>}
 		</Container>
 	);

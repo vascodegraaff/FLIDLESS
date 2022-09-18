@@ -7,8 +7,8 @@ import {
 	Text,
 	Button,
 	Stack,
-	Icon,
-	useColorModeValue,
+	Image,
+	Center,
 	createIcon,
 } from '@chakra-ui/react';
 
@@ -34,6 +34,11 @@ function ClientWelcomeScreen() {
 					textAlign={'center'}
 					spacing={{ base: 8, md: 14 }}
 					py={{ base: 20, md: 36 }}>
+					<Center >
+						<Box boxSize={'3xs'}>
+							<Image src={require('../assets/logo.png')} alt='logo' />
+						</Box>
+					</Center>
 					<Heading
 						fontWeight={600}
 						fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
