@@ -11,12 +11,14 @@ import {
 import QRCode from "react-qr-code";
 
 
-function ClientQrCodeScreen() {
+function ClientQrCodeScreen(props) {
 	const [name, setName] = useState('NEO');
 	const [flight, setFlight] = useState('MH370');
-	const [time, setTime] = useState("11:00 Sepetember 18");
-	const [qrCode, setQrCode] = useState({data:{"test":"cool"}})
-
+	const [seat, setSeat] = useState("28A");
+	const [time, setTime] = useState("12:50 Sepetember 18");
+	const [qrCode, setQrCode] = useState("hash-6b33981c0201d37f128cabe1b025fd6acef08576ebef77536d4faeb9e9d9b22d")
+	console.log("test")
+	console.log(props)
 	useEffect(() => {
 
 	}, [name]);
@@ -61,7 +63,10 @@ function ClientQrCodeScreen() {
 						{name}
 					</Heading>
 					<Text color={'gray.600'}>
-						{flight}
+						Flight Number: {flight}, Seat Number: {seat}
+					</Text>
+					<Text style={{ fontSize: "0.6em"}} color={'gray.600'}>
+						Address: {qrCode}
 					</Text>
 					<Text color={'gray.400'}>
 						{time}

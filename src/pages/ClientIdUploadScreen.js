@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import '@apideck/file-picker/dist/styles.css'
+import '@apideck/file-picker/dist/styles.css';
 import { Link } from 'react-router-dom';
+import { useHistory, useNavigate } from 'react-router-dom';
 import {
 	Box,
 	Container,
@@ -15,10 +16,12 @@ import {
 	Center,
 	Spinner,
 } from '@chakra-ui/react';
+import axios from 'axios'
 
 function ClientIdUploadScreen() {
 	const [file, setFile] = useState()
 	const [loading, setLoading] = useState();
+	const navigate = useNavigate();
 	
 	function handleChange(event) {
 		setFile(event.target.files[0]);
@@ -27,7 +30,6 @@ function ClientIdUploadScreen() {
 	function processFile() {
 		console.log(file);
 		if(file!=null){
-			// setLoading(true);
 			const fileReader = new FileReader();
 			fileReader.readAsText(file, "UTF-8");
 			fileReader.onload = e => {
@@ -38,20 +40,25 @@ function ClientIdUploadScreen() {
 	}
 
 	async function callZkProof(data) {
+		setLoading(true)
 		let inputsJson = JSON.parse(data);
 		const { proof, publicSignals } = await window.snarkjs.groth16.fullProve(inputsJson, 'indian-verifier-minimal.wasm', 'circuit_0.zkey')
+		
 		console.log(proof, publicSignals);
+		
+		axios.get(`http://localhost:4000/validate_proof`).then(res => {
+			console.log(res.data);
+			navigate('/qrCode', { data: "pedal" });
+		}).catch(err => console.warn(err))
 	}
-
-
 
 	return (
 		<Container maxW={'2xl'}>
-			{loading ? <>
-			<Center>
+			{loading ? <div style={{height: "100vh"}}>
+			<Center style={{ height: "100%" }}>
 				<Spinner size={'xl'}/>
 			</Center>
-			</> :
+			</div> :
 				<Stack
 					as={Box}
 					textAlign={'center'}

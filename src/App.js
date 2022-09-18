@@ -15,7 +15,7 @@ function App() {
     <Routes>
       <Route path="" element={<ClientWelcomeScreen />} />
       <Route path="idUpload" element={<ClientIdUploadScreen />} />
-      <Route path="qrCode" element={<ClientQrCodeScreen />} />
+      <Route path="qrCode" element={<ClientQrCodeScreen/>} />
 
       <Route path="admin" element={<AdminLoginScreen />}></Route>
       <Route path="scanner" element={<AdminScannerScreen />} />

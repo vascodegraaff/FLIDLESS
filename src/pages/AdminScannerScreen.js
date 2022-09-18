@@ -13,7 +13,8 @@ import {
 	Center,
 	Image,
 	createIcon,
-	Flex
+	Flex,
+	Spinner
 } from '@chakra-ui/react';
 import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
@@ -38,15 +39,17 @@ function AdminScannerScreen() {
 	const [data, setData] = useState('No result');
 	const [verified, setVerified] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const IMAGE = 'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
 
 	const navigate = useNavigate();
 
 	React.useEffect(() => {
 		if (verified) {
-			// navigate and pass props as true
+			axios.get(`http://localhost:4000/verify_status`).then(res => {
+				setLoading(false)
+				navigate('/scanStatus', !!res.data.status);
+			}).catch(err => console.warn(err))
 		}
-	}, [verified, loading]);
+	}, [verified]);
 
 	return (
 		<>
@@ -78,30 +81,33 @@ function AdminScannerScreen() {
 							height={'xl'}
 							borderRadius={'lg'}
 						>
-							{ !loading ? <QrReader
+							{ !loading ? <QrReader 
 								onResult={(result, error) => {
 									if (!!result) {
 										setLoading(true)
-										axios.get(`http://localhost:4000/verify_status`).then(res => {
-											navigate('/scanStatus', !!res.data.status);
-											setLoading(false)
-											setVerified(false)
-										}).catch(err => console.warn(err))
-									} 
+										setData(result)
+										setVerified(true)
+									}
 									
 									if (!!error) {
 										setLoading(false)
 									}
 								}}
 								style={{ width: '100%' }}
-							/> : <center>Loading</center>}
+							/> : <div style={{height: "100%", width:"100%"}}>
+							<Center style={{ display: "flex", flexDirection: "column", height: "100%", width:"100%" }}>
+								<Spinner size={'xl'}/>
+								<br/>
+								<Text color={'gray.500'} maxW={'3xl'} textAlign="center">
+									{data.toString()}
+								</Text>
+							</Center>
+							</div>}
 						</Box>
 					</Box>
 
 				</Stack>
 			</Center>
-			<p>{data}</p>
-
 		</>
 	);
 }

@@ -12,6 +12,7 @@ import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 
 function AdminScanStatusScrene(options) {
 	console.log(options)
+	
 	return (
 		<>
 			<Center>
@@ -27,6 +28,8 @@ function AdminScanStatusScrene(options) {
 							lineHeight={'110%'}>
 							Successfully verified flyer
 						</Heading>
+					<br/>
+					<br/>
 						<CheckCircleIcon boxSize={'10rem'} color={'green.500'} />
 					</> : <>
 						<Heading
@@ -38,6 +41,8 @@ function AdminScanStatusScrene(options) {
 							lineHeight={'110%'}>
 							Failed to verify flyer
 						</Heading>
+					<br/>
+					<br/>
 						<Box display="inline-block">
 							<Flex
 								flexDirection="column"
@@ -51,6 +56,8 @@ function AdminScanStatusScrene(options) {
 							</Flex>
 						</Box>
 					</>}
+					<br/>
+					<br/>
 					<Link exact="true" to="/scanner">
 						<Button
 							colorScheme={'green'}
