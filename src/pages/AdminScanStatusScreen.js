@@ -8,17 +8,20 @@ import {
 	Button,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { CheckCircleIcon, CloseIcon } from '@chakra-ui/icons';
 
-function AdminScanStatusScrene(options) {
-	console.log(options)
-	
+function AdminScanStatusScrene() {
+
+	const { state } = useLocation();
+	console.log(state)
+
 	return (
 		<>
 			<Center>
 				<VStack margin={'40'}>
 
-					{options ? <>
+					{state ? <>
 						<Heading
 							textAlign="center"
 							fontWeight={600}

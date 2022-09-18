@@ -46,19 +46,22 @@ function ClientIdUploadScreen() {
 		
 		console.log(proof, publicSignals);
 		
-		axios.get(`http://localhost:4000/validate_proof`).then(res => {
-			console.log(res.data);
-			navigate('/qrCode', { data: "pedal" });
-		}).catch(err => console.warn(err))
+		// axios.get(`http://localhost:4000/validate_proof`).then(res => {
+		// }).catch(err => console.warn(err))
+		navigate('/qrCode', "shit");
 	}
 
 	return (
 		<Container maxW={'2xl'}>
-			{loading ? <div style={{height: "100vh"}}>
-			<Center style={{ height: "100%" }}>
-				<Spinner size={'xl'}/>
-			</Center>
-			</div> :
+			{loading ? <div style={{height: "100vh", width:"100wh"}}>
+							<Center style={{ display: "flex", flexDirection: "column", height: "100%", width:"100%" }}>
+								<Spinner size={'xl'}/>
+								<br/>
+								<Text color={'gray.500'} maxW={'3xl'} textAlign="center">
+									Generating a zero-knowledge proof...
+								</Text>
+							</Center>
+							</div> :
 				<Stack
 					as={Box}
 					textAlign={'center'}

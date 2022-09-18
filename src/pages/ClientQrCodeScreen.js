@@ -8,6 +8,7 @@ import {
 	Avatar,
 	useColorModeValue,
 } from '@chakra-ui/react';
+import { useLocation } from 'react-router-dom';
 import QRCode from "react-qr-code";
 
 
@@ -16,12 +17,12 @@ function ClientQrCodeScreen(props) {
 	const [flight, setFlight] = useState('MH370');
 	const [seat, setSeat] = useState("28A");
 	const [time, setTime] = useState("12:50 Sepetember 18");
-	const [qrCode, setQrCode] = useState("hash-6b33981c0201d37f128cabe1b025fd6acef08576ebef77536d4faeb9e9d9b22d")
-	console.log("test")
-	console.log(props)
-	useEffect(() => {
 
-	}, [name]);
+	const { state } = useLocation();
+	console.log(state)
+
+	const [qrCode, setQrCode] = useState("hash-14b672028c44d41a1680ef4472ba2c340b1e0c709e970e1d1801b6caff61ff2f")
+
 	return (
 		<Center py={20}>
 			<Box

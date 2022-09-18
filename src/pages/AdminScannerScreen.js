@@ -46,7 +46,7 @@ function AdminScannerScreen() {
 		if (verified) {
 			axios.get(`http://localhost:4000/verify_status`).then(res => {
 				setLoading(false)
-				navigate('/scanStatus', !!res.data.status);
+				navigate('/scanStatus', { state: !!res.data.status });
 			}).catch(err => console.warn(err))
 		}
 	}, [verified]);
