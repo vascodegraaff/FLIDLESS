@@ -19,8 +19,7 @@ import {
 function ClientIdUploadScreen() {
 	const [file, setFile] = useState()
 	const [loading, setLoading] = useState();
-	const [fileContent, setFileContent] = useState('');
-
+	
 	function handleChange(event) {
 		setFile(event.target.files[0]);
 	}
@@ -33,13 +32,15 @@ function ClientIdUploadScreen() {
 			fileReader.readAsText(file, "UTF-8");
 			fileReader.onload = e => {
 				console.log("e.target.result", e.target.result);
-				setFileContent(e.target.result);
+				callZkProof(e.target.result);
 			};
 		}
 	}
 
-	async function callZkProof() {
-
+	async function callZkProof(data) {
+		let inputsJson = JSON.parse(data);
+		const { proof, publicSignals } = await window.snarkjs.groth16.fullProve(inputsJson, 'indian-verifier-minimal.wasm', 'circuit_0.zkey')
+		console.log(proof, publicSignals);
 	}
 
 
