@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Flidless
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The proposed solution speeds up lengthy airport procedures. The new Noida International Airport in India will welcome approximately 70Mio passengers yearly. In this scenario, every minute the airport crew spends on verifying the identity and flight data of each passenger can add up to years of wasted time.
+Flidless effectively eliminates the need for multiple custom & boarding pass checks - by confirming a match of the passenger's personal data with their flight details, using a Zero-Knowledge Proof of Identity.
+Thus, Flidless ensures absolute privacy with state-of-art cryptography and utilization of the Casper blockchain. Navigate through the airport faster and keep your documents safe in your pocket!
 
-## Available Scripts
-
-In the project directory, you can run:
-
+[flidless demo](https://www.youtube.com/watch?v=u_5FvObyfsI&ab_channel=ngszyba)
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Achievements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![second place](https://user-images.githubusercontent.com/40253263/199842102-0b408478-a247-469c-83c6-b8455ffd8940.jpeg)
 
-### `npm test`
+We ended up winning second place @HackZurich 2022. From over 5000 applicants and 1300 participants! We're all extremely grateful for this oppertunity and really glad that everyone enjoyed seeing the project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
+### check out the demo on youtube below
 
-### `npm run build`
+[![Flidless Demo](https://img.youtube.com/vi/u_5FvObyfsI/0.jpg)](https://www.youtube.com/watch?v=u_5FvObyfsI&ab_channel=ngszyba)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Tech
+This app was built using a react frontend, a node backend and utilized the casper blockchain.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+open two terminal windows and run ```npm install && npm start```
