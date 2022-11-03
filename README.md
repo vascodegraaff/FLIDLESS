@@ -5,7 +5,7 @@ Flidless effectively eliminates the need for multiple custom & boarding pass che
 Thus, Flidless ensures absolute privacy with state-of-art cryptography and utilization of the Casper blockchain. Navigate through the airport faster and keep your documents safe in your pocket!
 
 [flidless demo](https://www.youtube.com/watch?v=u_5FvObyfsI&ab_channel=ngszyba)
-### `npm start`
+
 
 # Achievements
 
@@ -22,4 +22,5 @@ We ended up winning second place @HackZurich 2022. From over 5000 applicants and
 # Tech
 This app was built using a react frontend, a node backend and utilized the casper blockchain.
 
-open two terminal windows and run ```npm install && npm start```
+open two terminal windows and run 
+##```npm install && npm start```
