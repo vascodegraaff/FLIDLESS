@@ -23,4 +23,4 @@ We ended up winning second place @HackZurich 2022. From over 5000 applicants and
 This app was built using a react frontend, a node backend and utilized the casper blockchain.
 
 open two terminal windows and run 
-##```npm install && npm start```
+```npm install && npm start```
