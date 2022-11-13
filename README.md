@@ -11,7 +11,7 @@ Thus, Flidless ensures absolute privacy with state-of-art cryptography and utili
 
 ![second place](https://user-images.githubusercontent.com/40253263/199842102-0b408478-a247-469c-83c6-b8455ffd8940.jpeg)
 
-We ended up winning second place @HackZurich 2022. From over 5000 applicants and 1300 participants! We're all extremely grateful for this oppertunity and really glad that everyone enjoyed seeing the project.
+We ended up winning second place @HackZurich 2022, from over 5000 applicants and 1300 participants! We're all extremely grateful for this opportunity and glad that the project was liked.
 
 ## Demo
 ### check out the demo on youtube below
